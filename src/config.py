@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     ASSISTANT_ID: str
     DB_FILENAME: str
     WEBHOOK_URL: str
+    WEBAPP: str
     @property
     def DATABASE_URL(self):
         return f"sqlite+aiosqlite:///{self.DB_FILENAME}"

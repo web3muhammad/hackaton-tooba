@@ -46,12 +46,3 @@ async def get_response(thread_id, run):
 
     messages = await client.beta.threads.messages.list(thread_id, limit=1)
     return messages.data[0].content[0].text.value
-
-    # async with client.beta.threads.runs.stream(
-    #   thread_id=thread_id,
-    #   assistant_id=assistant_id,
-    #   event_handler=EventHandler(),
-    # ) as stream:
-    #     stream.until_done()
-    #     print(stream)
-    #

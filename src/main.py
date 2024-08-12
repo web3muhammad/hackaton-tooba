@@ -69,7 +69,7 @@ async def gpttrigger(item: Item):
     thread_id = await get_user_thread(item.user_id)
     campaign = await get_spec_campaign(item.campaign_id)
     result = await start_gpt(thread_id,
-                    f"Я пожертвовал деньги сюда {campaign}, "
-                    f"начни со мной разговор с похвал или вопросов исходя из этого.")
+                    f"Напиши мне о сборе: {campaign}, "
+                    f"и продолжи разговор вопросами о похожей тематике.")
     await bot.send_message(chat_id=item.user_id, text=result)
     return {"ok": True}
