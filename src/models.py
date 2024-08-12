@@ -19,3 +19,4 @@ class Campaign(Base):
     collected: Mapped[int]
     title: Mapped[str]
     description: Mapped[str]
+    link: Mapped[str]
