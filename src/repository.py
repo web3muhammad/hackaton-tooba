@@ -44,7 +44,8 @@ async def add_campaign(campaign: CampaignSchema):
             goal=campaign.goal,
             collected=campaign.collected,
             title=campaign.title,
-            description=campaign.description
+            description=campaign.description,
+            link=campaign.link
             ))
         await session.commit()
 

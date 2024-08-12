@@ -14,3 +14,4 @@ class CampaignSchema(BaseModel):
     collected: int
     title: str
     description: str
+    link: str
