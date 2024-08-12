@@ -5,9 +5,9 @@ from aiogram import types
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.bot.bot import dp
-from src.repository import create_tables, add_campaign, get_campaign, get_spec_campaign
+from src.repository import create_tables, add_campaign, get_campaign, get_spec_campaign, get_user_thread
 from src.schemas import CampaignSchema
-from src.utils import bot
+from src.utils import bot, start_gpt
 from src.config import settings
 
 
@@ -57,4 +57,16 @@ async def addcampaign(campaign: CampaignSchema):
 async def addcampaign(campaigns: list[CampaignSchema]):
     for campaign in campaigns:
         await add_campaign(campaign)
+    return {"ok": True}
+
+
+
+@app.post("/gpttrigger")
+async def gpttrigger(user_id: int, campaign_id: int):
+    thread_id = await get_user_thread(user_id)
+    campaign = await get_spec_campaign(campaign_id)
+    result = await start_gpt(thread_id,
+                    f"Я пожертвовал деньги сюда {campaign}, "
+                    f"начни со мной разговор с похвал или вопросов исходя из этого.")
+    await bot.send_message(chat_id=user_id, text=result)
     return {"ok": True}
