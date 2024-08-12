@@ -41,7 +41,7 @@ async def getcampaigns(limit: int = 10, offset: int = 0):
     return campaigns
 
 
-@app.get("/campaign")
+@app.get("/campaign/{campaign_id}")
 async def getcampaign(campaign_id: int):
     campaign = await get_spec_campaign(campaign_id)
     return campaign
