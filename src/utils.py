@@ -1,7 +1,7 @@
-from aiogram import Bot, Dispatcher
+from aiogram import Bot
 
-from src.app.config import settings
-from src.app.services import create_new_message, create_new_run, get_response
+from src.config import settings
+from src.services import create_new_message, create_new_run, get_response
 
 bot = Bot(token=settings.BOT_TOKEN)
 

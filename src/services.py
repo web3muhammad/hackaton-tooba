@@ -1,7 +1,7 @@
 import asyncio
 from openai import AsyncOpenAI
 
-from src.app.config import settings
+from src.config import settings
 
 client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
 assistant_id = settings.ASSISTANT_ID

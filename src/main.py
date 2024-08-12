@@ -1,14 +1,14 @@
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from aiogram import types
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.app.bot.bot import dp
-from src.app.repository import create_tables, get_user_thread, add_campaign, get_campaign, get_spec_campaign
-from src.app.schemas import CampaignSchema
-from src.app.utils import bot, start_gpt
-from src.app.config import settings
+from src.bot.bot import dp
+from src.repository import create_tables, add_campaign, get_campaign, get_spec_campaign
+from src.schemas import CampaignSchema
+from src.utils import bot
+from src.config import settings
 
 
 @asynccontextmanager

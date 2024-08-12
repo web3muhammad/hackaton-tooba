@@ -2,9 +2,9 @@ from aiogram import Router
 from aiogram.types import Message
 from aiogram.filters import Command, CommandStart
 
-from src.app.repository import add_user, check_user_exists, get_user_thread
-from src.app.services import create_new_thread, create_new_run, get_response, create_new_message
-from src.app.utils import start_gpt
+from src.repository import add_user, check_user_exists, get_user_thread
+from src.services import create_new_thread
+from src.utils import start_gpt
 
 router = Router()
 

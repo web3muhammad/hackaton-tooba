@@ -1,7 +1,7 @@
 from sqlalchemy import select
-from src.app.database import async_engine, Base, async_session_factory
-from src.app.models import User, Campaign
-from src.app.schemas import CampaignSchema
+from src.database import async_engine, Base, async_session_factory
+from src.models import User, Campaign
+from src.schemas import CampaignSchema
 
 
 async def create_tables():
