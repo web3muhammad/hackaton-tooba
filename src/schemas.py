@@ -15,3 +15,7 @@ class CampaignSchema(BaseModel):
     title: str
     description: str
     link: str
+
+class Item(BaseModel):
+    user_id: int
+    campaign_id: int
